@@ -35,4 +35,3 @@ Controller ControllerInit();
 void ControllerInitSDL();
 void ContorllerUpdate(Controller *controller, SDL_Event *event);
 void ControllerDraw(Controller *controller, SDL_Renderer *renderer);
-void ControllerVibrate(Controller *controller);

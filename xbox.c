@@ -55,7 +55,15 @@ int main(int argc, char**argv) {
           quit = 1;
         break;
         case SDL_KEYDOWN:
-          quit = 1;
+          if (e.key.keysym.sym == SDLK_SPACE) {
+            // test out vibration in a rotation shape
+            // I can't really tell the direction, but I should test it more
+            ControllerVibrate(&controller);
+          }
+          if (e.key.keysym.sym == SDLK_ESCAPE ||
+              e.key.keysym.sym == SDLK_RETURN) {
+            quit = 1;
+          }
         break;
       }
       ContorllerUpdate(&controller, &e);

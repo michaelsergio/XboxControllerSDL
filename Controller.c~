@@ -5,7 +5,7 @@
 #define FMT_STICK_NS "^ %.2f%% v"
 #define FMT_STICK_WE "< %.2f%% >"
 #define FMT_BUTTON "%.0f"
-#define UNACTIVATED_COLOR {255,255,255, 0}
+#define UNACTIVATED_COLOR {25	5,255,255, 0}
 
 #define AXIS_L_WE 0
 #define AXIS_L_NS 1
@@ -209,9 +209,6 @@ void ControllerDraw(Controller *controller, SDL_Renderer *renderer) {
   ButtonDraw(&controller->back, renderer);
   ButtonDraw(&controller->xbox, renderer);
   ButtonDraw(&controller->start, renderer);
-
-  SDL_Color white = {255,255,255};
-  DrawText(0, 440, "Space - Vibrate    Esc/Enter - Quit", white, renderer);
 }
 
 
@@ -226,7 +223,7 @@ void ControllerVibrate(Controller *controller) {
 	  int north_id, east_id, west_id, south_id;
 
 	  // Open the device
-    haptic = SDL_HapticOpenFromJoystick(controller->joystick);
+    haptic = SDL_HapticOpenFromJoystick(joy);
     if (haptic == NULL) return; // Most likely joystick isn't haptic
 
 	  // See if it can do sine waves
